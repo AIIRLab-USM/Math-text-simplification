@@ -5,7 +5,7 @@ This project uses the **Meta-LLaMA 3 (8B Instruct)** model to simplify complex s
 ## Features
 
 - Uses **Meta-LLaMA/Meta-LLaMA-3-8B-Instruct** via Hugging Face's `transformers` pipeline
-- Simplifies math/science text using natural language prompts
+- Simplifies math text using natural language prompts
 
 ## Requirements
 The following Python packages (installed via `requirements.txt`):
