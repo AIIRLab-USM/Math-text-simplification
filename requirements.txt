@@ -11,3 +11,7 @@ python-dotenv>=1.0.1
 evaluate
 sacremoses
 sacrebleu
+
+# Py readability metrics
+py-readability-metrics>=0.1.
+textstat
