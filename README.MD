@@ -20,7 +20,7 @@ The following Python packages (installed via `requirements.txt`):
 
 1. Clone the repo:
 ```bash
-git clone https://github.com/your-username/math-text-simplification.git
+git clone https://github.com/AIIRLab-USM/Math-text-simplification.git
 cd math-text-simplification
 ``` 
 2. Create and activate a virtual environment:
