@@ -1,12 +1,12 @@
 import os
 from dotenv import load_dotenv
 import torch
-from transformers import pipeline
+from transformers import pipeline # type: ignore
 
 load_dotenv()
 hf_token = os.getenv("HF_TOKEN")
 
-model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
+model_id = "meta-llama/Llama-3.1-8B-Instruct"
 pipeline_llama = pipeline(
     "text-generation",
     model=model_id,
@@ -27,23 +27,23 @@ def simplify_math_text(text):
         {"role": "user", "content": user_message},
     ]
 
-    prompt = pipeline_llama.tokenizer.apply_chat_template(
+    prompt = pipeline_llama.tokenizer.apply_chat_template( # type: ignore
         messages, tokenize=False, add_generation_prompt=True
     )
 
     terminators = [
-        pipeline_llama.tokenizer.eos_token_id,
-        pipeline_llama.tokenizer.convert_tokens_to_ids("<|eot_id|>")
+        pipeline_llama.tokenizer.eos_token_id, # type: ignore
+        pipeline_llama.tokenizer.convert_tokens_to_ids("<|eot_id|>") # type: ignore
     ]
 
     outputs = pipeline_llama(
-        prompt,
+        prompt, # type: ignore
         max_new_tokens=200,
         eos_token_id=terminators,
         do_sample=True,
         temperature=0.6,
         top_p=0.9,
-        pad_token_id=pipeline_llama.tokenizer.eos_token_id,
-    )
+        pad_token_id=pipeline_llama.tokenizer.eos_token_id, # type: ignore
+    ) # type: ignore
 
     return outputs[0]["generated_text"][len(prompt):].strip()

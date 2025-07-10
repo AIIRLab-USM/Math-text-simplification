@@ -1,0 +1,60 @@
+Text,Simplified
+"How do I efficiently compute $a^b \bmod c$?
+
+ * When $b$ is huge, for instance $5^{844325} \bmod 21$?
+ * When $b$ is less than $c$ but it would still be a lot of work to multiply $a$ by itself $b$ times, for instance $5^{69} \bmod 101$?
+ * When $\gcd(a, c) \ne 1$, for instance $6^{103} \bmod 14$?
+
+Are there any other tricks for evaluating exponents in modular arithmetic?","How do you quickly find $a^b \bmod c$? This means finding the remainder when $a$ is multiplied by itself $b$ times, then divided by $c$.
+
+Consider these cases:
+
+* When $b$ is a very large number, like $5^{844325} \bmod 21$.
+* When $b$ is smaller than $c$, but still big. For example, $5^{69} \bmod 101$.
+* When $a$ and $c$ share a common factor. For example, $6^{103} \bmod 14$. (A common factor is a number that divides both without a remainder.)
+
+Are there other smart ways to solve these problems in modular arithmetic? (Modular arithmetic is about remainders after division.)"
+"I am trying to prove from scratch that the rank of a torsion-free abelian group is exactly the size of a maximal linearly independent set. I have most of the proof done already, and am stuck trying to prove the following lemma:
+
+
+Lemma: If X is a maximal linearly independent subset of a torsion-free abelian group A then A embeds as a subgroup of $\oplus_{i \in X} \mathbb{Q}$. (That’s one copy of Q per element of X.) 
+
+
+How do I prove this lemma?
+
+
+I will define the notions relevant to the lemma. A set X in a torsion-free abelian group A is said to be linearly independent if for any elements $x_1 \ldots x_n$ from X, the equation $m_1x_1 + \cdots + m_nx_n = 0$ has only the trivial solution where each $m_i = 0$. Here, the variables $m_i$ are integers.
+
+A group is said to be torsion-free if no element has finite order. ","I'm trying to show that for a special type of group, its ""rank"" is the same as the number of elements in its largest ""linearly independent"" set. I'm almost done, but I need help proving this idea (lemma):
+
+Lemma: If X is a maximal (largest possible) set where elements are ""linearly independent"" in a ""torsion-free abelian group"" A, then A can fit perfectly inside a larger group made of many copies of Q (the set of all rational numbers, which are fractions). There's one copy of Q for each element in X.
+
+How do I prove this?
+
+    Torsion-free abelian group: This is a group where numbers can be added in any order (abelian), and no element (except zero) becomes zero when you add it to itself a certain number of times (torsion-free).
+
+    Linearly independent: Imagine you have a set of items (X) from our group (A). If you combine them using whole numbers as multipliers (like m1​x1​+…+mn​xn​=0), the only way for the result to be zero is if all the multipliers (mi​) are zero."
+"Computing the $p$-norm of a matrix $A$ is defined as:
+
+$$\|A\|_p = \max \{|\|Ax\|_p\mid\|x\|_p \leq 1\} = \max_{x\neq 0}\left\{\frac{\|Ax\|_p}{\|x\|_p}\right\}$$
+
+Is this problem convex or non-convex?(PPS: Based on these two maximization problems, is finding $||A||_p$ a convex optimization problem?)","The $p$-norm of a matrix $A$, denoted as $\|A\|_p$, is determined in two ways:
+
+First, it is the highest possible value of $\|Ax\|_p$ when $\|x\|_p$ is less than or equal to 1.
+
+Second, it is the highest possible value of the ratio $\frac{\|Ax\|_p}{\|x\|_p}$ for any $x$ that is not zero.
+
+Based on these two maximization problems, is finding $\|A\|_p$ a **convex optimization problem**?"
+"Let $G$ be a split reductive group over a field $F$. Fix a Borel subgroup and a maximal torus inside it. Let $\mu$ be a dominant cocharacter. I have seen several definitions of minuscule cocharacter of $G$. May I ask whether the following are equivalent? If not, which one is the most common one?
+
+ 1. Call $\mu$ minuscule if $\mu\neq 0$ and for all positive roots $\alpha$, $(\mu,\alpha)\le 1$.
+ 2. $\mu$ corresponds to an irreducible representation $V_\mu$ of the Langlands dual group $\hat G$ with highest weight $\mu$. Call $\mu$ minuscule if all weights of $V_\mu$ have multiplicity 1.
+ 3. Let $\mathbb G_m$ act on the Lie algebra $\mathfrak g$ of $G$ via $Ad\circ \mu$, where $Ad$ is the adjoint representation. Call $\mu$ minuscule if only the characters $1,z,z^{-1}$ appear.","Suppose $G$ is a **split reductive group** (a type of matrix group) over a **field** $F$ (a number system like the real or complex numbers). Inside it, we have a chosen **Borel subgroup** and a **maximal torus** (two specific, well-behaved subgroups). Let $\mu$ be a dominant **cocharacter** (a special kind of map into the group $G$).
+
+There appear to be several definitions for a minuscule cocharacter of $G$. Are the following definitions equivalent? If not, which is the most common?
+
+1.  $\mu$ is called minuscule if $\mu\neq 0$ and for all positive **roots** $\alpha$ (functions that define the group's core structure), the value $(\mu,\alpha)\le 1$.
+
+2.  $\mu$ corresponds to an **irreducible representation** $V_\mu$ (a way to view the group as matrices that can't be simplified) of the **Langlands dual group** $\hat G$ (a related ""partner"" group). Here, $\mu$ is called minuscule if all weights of $V_\mu$ have a **multiplicity** (a count) of 1.
+
+3.  Let a simple group $\mathbb G_m$ act on the **Lie algebra** $\mathfrak g$ of $G$ (the space describing the group near its ""starting point"" or identity). Then, $\mu$ is called minuscule if only the **characters** (functions describing the action) $1,z,z^{-1}$ appear."

@@ -6,3 +6,12 @@ safetensors>=0.4.0
 
 # For loading environment variables
 python-dotenv>=1.0.1
+
+# For evaluation metric models (like SARI)
+evaluate
+sacremoses
+sacrebleu
+
+# Py readability metrics
+py-readability-metrics>=0.1.
+textstat
