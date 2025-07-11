@@ -13,5 +13,5 @@ sacremoses
 sacrebleu
 
 # Py readability metrics
-py-readability-metrics>=0.1.
+py-readability-metrics>=0.1
 textstat
