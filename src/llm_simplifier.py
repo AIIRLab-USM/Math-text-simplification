@@ -1,30 +1,19 @@
-import os
-from dotenv import load_dotenv
-import torch
-from transformers import pipeline # type: ignore
-
-load_dotenv()
-hf_token = os.getenv("HF_TOKEN")
-
-model_id = "meta-llama/Llama-3.1-8B-Instruct"
-pipeline_llama = pipeline(
-    "text-generation",
-    model=model_id,
-    model_kwargs={"torch_dtype": torch.bfloat16},
-    device_map="auto",
-    token=hf_token  #Use token from .env
-)
+import json
+from models import pipeline_llama
 
 system_message = (
-    "Your task is to simplify scientific sentences into an easy-to-read sentence "
-    "while keeping the main content. Do not add extra explanation like 'Here is:'"
+    "Your task is to simplify scientific and mathematic passages into an easy-to-read passage "
+    "You will be provided a json object with the following keys: 'term1', 'term2', etc. and their corresponding difficulties. "
+    "The difficulties can be 'easy', 'medium', or 'hard'. In the passage, you must replace the complex terms with simpler alternatives or add definitions for them. "
+    "You must keep the main content, and you should not try to answer any questions, or solve any equations. Do not add extra explanation like 'Here is:'"
 )
 
-def simplify_math_text(text):
-    user_message = f"Simplify this sentence: SENTENCE: {text}. Simplify the SENTENCE."
+def simplify_math_text(text, terms):
+    terms_json = json.dumps(terms)
+    user_prompt = f"PASSAGE: {text}. Simplify the passage by replacing complex terms with simpler alternatives, and add the definitions and simplifications for the identified terms. The terms you must defined are: ${terms_json}. The passage should still convey the main content and not try to answer any questions or solve any equations."
     messages = [
         {"role": "system", "content": system_message},
-        {"role": "user", "content": user_message},
+        {"role": "user", "content": user_prompt},
     ]
 
     prompt = pipeline_llama.tokenizer.apply_chat_template( # type: ignore
