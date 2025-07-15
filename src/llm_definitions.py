@@ -1,9 +1,13 @@
 from models import pipeline_llama
 import json
+from definitions import easy_term, medium_term, hard_term
 
 system_message = (
     'Your task is to generate a list of up to 5 of the most difficult definitions, concepts, or equations in the following passage. '
     'The output should be in the format of a json dictionary such as: {"term1": "easy", "term2": "hard", ...}'
+    'An easy term is defined as follows: "' + easy_term + '"'
+    'A medium term is defined as follows: "' + medium_term + '"'
+    'A hard term is defined as follows: "' + hard_term + '"'
     "The passage will be provided in the user prompt. "
     "If there are no difficult terms, return an empty JSON object: {}."
     "Do not add extra explanation like 'Here is:' or 'The identified terms are:'."
@@ -36,4 +40,4 @@ def get_definitions(text):
 
     text = outputs[0]["generated_text"][len(prompt):].strip()
     print(text)
-    return json.loads(text) if text and text != "No difficult terms found" else {}
+    return json.loads(text)

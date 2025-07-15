@@ -1,0 +1,3 @@
+easy_term = 'This is any term or mathematics that uses primarily algebra (like polynomials, linear equations, and functions) and basic geometry concepts. This means that it should go up to a grade level of 12, or the start of calculus.'
+medium_term = 'This encompasses all calculus concepts and terms, as well as linear algebra, mostly math classes for undergraduate students.'
+hard_term = 'This includes advanced topics such as differential equations, real analysis, proofs, and abstract algebra, typically studied in graduate-level mathematics.'
