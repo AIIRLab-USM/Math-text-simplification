@@ -10,7 +10,7 @@ system_message = (
 
 def simplify_math_text(text, terms):
     terms_json = json.dumps(terms)
-    user_prompt = f"PASSAGE: {text}. Simplify the passage by replacing complex terms with simpler alternatives, and add the definitions and simplifications for the identified terms. The terms you must defined are: ${terms_json}. The passage should still convey the main content and not try to answer any questions or solve any equations."
+    user_prompt = f"PASSAGE: {text}. Simplify the passage by replacing complex terms with simpler alternatives, and add the definitions and simplifications for the identified terms. The terms you must define are: {terms_json}. The passage should still convey the main content and not try to answer any questions or solve any equations."
     messages = [
         {"role": "system", "content": system_message},
         {"role": "user", "content": user_prompt},
