@@ -1,6 +1,7 @@
 import sys
 import pandas as pd
 from llm_simplifier import simplify_math_text
+from llm_definitions import get_definitions
 
 def main():
     if len(sys.argv) > 1:
@@ -19,8 +20,14 @@ def main():
             if user_input.strip().lower() in {"exit", "quit"}:
                 print("Goodbye!")
                 break
-            
-            result = simplify_math_text(user_input)
+            definitions = get_definitions(user_input)
+            if definitions:
+                print("\nIdentified terms and difficulties:")
+                for term, difficulty in definitions.items():
+                    print(f"{term}: {difficulty}")
+            else:
+                print("\nNo difficult terms identified.")
+            result = simplify_math_text(user_input, definitions)
             print("\nSimplified version:\n", result, "\n")
 
 if __name__ == "__main__":

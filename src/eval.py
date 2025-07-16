@@ -38,6 +38,7 @@ def evaluate_simplification_with_flesch_kincaid(source: str, references: list[st
     return score - source_score  # Return the difference to see how much easier the hypothesis is compared to the source
 
 from llm_simplifier import simplify_math_text
+from llm_definitions import get_definitions
 
 def evaluate_simplification_with_llm(source: str, references: list[str]) -> tuple[float, float]:
     """
@@ -50,7 +51,8 @@ def evaluate_simplification_with_llm(source: str, references: list[str]) -> tupl
     Returns:
         float: The SARI score of the LLM-generated simplification.
     """
-    hypothesis = simplify_math_text(source)
+    definitions = get_definitions(source)
+    hypothesis = simplify_math_text(source, definitions)
     return (evaluate_simplification_with_sari(source, references, hypothesis), evaluate_simplification_with_flesch_kincaid(source, references, hypothesis))
 
 def main(args=None):
